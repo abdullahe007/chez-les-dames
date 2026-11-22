@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merci pour ta commande – Chez les Dames</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#1B1224">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#A877E8;          /* lighter tone of the brand purple for dark background */
+  --brand-2:#FF9A57;
+  --ink:#FFFFFF;
+  --bg:#150E1D;
+  --card:#211530;
+  --border:#3A2A52;
+  --muted:#C9BBDB;
+  --font-head:"Cormorant Garamond","Playfair Display",Georgia,"Times New Roman",serif;
+  --font-body:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{overflow-x:clip}
+body{margin:0;min-height:100vh;background:radial-gradient(1200px 600px at 50% -10%,#3A1470 0%,var(--bg) 60%);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:40px 16px 48px;text-align:center}
+.brand{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.archpic{width:104px;margin:28px auto 0;border-radius:999px 999px 20px 20px;overflow:hidden;border:2px solid var(--brand-2);box-shadow:8px 8px 0 #5B21A6}
+.archpic img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 20%;display:block}
+.check{width:80px;height:80px;margin:32px auto 24px}
+.check circle{fill:none;stroke:var(--brand);stroke-width:4;stroke-dasharray:276;stroke-dashoffset:276;animation:draw .8s ease forwards}
+.check path{fill:none;stroke:#fff;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:draw .5s .7s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+h1{font-family:var(--font-head);font-size:clamp(36px,9vw,52px);line-height:1.1;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 auto 24px;max-width:420px}
+.oid{display:inline-block;background:var(--card);border:1px solid var(--border);border-radius:999px;padding:8px 18px;font-weight:600;font-size:14px;margin-bottom:32px}
+.oid span{color:var(--brand)}
+.alert{background:linear-gradient(135deg,#5B21A6,#3A1470);border:1px solid #7A45C4;border-radius:20px;padding:24px 16px;margin-bottom:32px;box-shadow:0 12px 40px rgba(91,33,166,.35)}
+.alert svg{width:36px;height:36px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:8px}
+.alert h2{font-family:var(--font-head);font-size:30px;margin:0 0 6px;line-height:1.15}
+.alert p{margin:0;font-size:15px;color:#EFE6FB}
+.steps{list-style:none;margin:0 0 32px;padding:0;text-align:left;display:grid;gap:12px}
+.steps li{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px}
+.num{flex:none;width:36px;height:36px;border-radius:50%;background:var(--brand);color:#150E1D;font-weight:700;display:flex;align-items:center;justify-content:center}
+.steps b{display:block;font-size:16px}
+.steps span{color:var(--muted);font-size:14px}
+.back{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:14px;border:2px solid var(--brand);color:#fff;text-decoration:none;font-weight:600;font-size:15px}
+.back:hover{background:rgba(168,119,232,.15)}
+.back:focus-visible{outline:3px solid var(--brand-2);outline-offset:3px}
+.foot{margin-top:40px;font-size:13px;color:var(--muted)}
+.fade{animation:rise .7s ease both}
+.fade.d2{animation-delay:.25s}.fade.d3{animation-delay:.45s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .check circle,.check path{stroke-dashoffset:0}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="brand">Chez les Dames</div>
+  <div class="archpic" data-ph><img src="assets/images/hero.jpg" width="896" height="1195" alt="" onerror="this.closest('[data-ph]').style.display='none'"></div>
+  <svg class="check" viewBox="0 0 96 96" aria-hidden="true"><circle cx="48" cy="48" r="44"/><path d="M28 50l14 14 26-30"/></svg>
+  <h1 id="title">Merci pour ta commande !</h1>
+  <p class="sub">Ta commande de foulard chapeau est bien reçue. Nous allons te contacter très vite.</p>
+  <div class="oid" id="oid-box" hidden>Commande n° <span id="oid"></span></div>
+
+  <div class="alert fade d2">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 0 0 5 5L16 12l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg>
+    <h2>Garde ton téléphone près de toi</h2>
+    <p>Nous allons t'appeler ou t'écrire sur WhatsApp pour confirmer ta livraison. Réponds vite pour recevoir ton foulard.</p>
+  </div>
+
+  <ol class="steps fade d3">
+    <li><span class="num">1</span><div><b>Commande reçue</b><span>Nous avons bien enregistré ta commande.</span></div></li>
+    <li><span class="num">2</span><div><b>Confirmation par téléphone</b><span>Nous t'appelons ou t'écrivons sur WhatsApp.</span></div></li>
+    <li><span class="num">3</span><div><b>Livraison</b><span>Le livreur t'apporte ton foulard chapeau.</span></div></li>
+    <li><span class="num">4</span><div><b>Tu paies à la réception</b><span>Tu regardes ton colis, puis tu paies.</span></div></li>
+  </ol>
+
+  <a class="back" href="index.html">← Retour à la boutique</a>
+  <p class="foot">© <span id="yr">2026</span> Chez les Dames</p>
+</main>
+<script>
+(function(){
+  var id = "", name = "";
+  try { id = localStorage.getItem("orderId") || ""; name = localStorage.getItem("orderName") || ""; } catch (e) {}
+  if (name){ var first = name.trim().split(/\s+/)[0]; document.getElementById("title").textContent = "Merci " + first + " !"; }
+  if (id){ document.getElementById("oid").textContent = id; document.getElementById("oid-box").hidden = false; }
+  document.getElementById("yr").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
